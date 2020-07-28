@@ -1,10 +1,9 @@
-import React,{useContext} from 'react';
-import {motion} from 'framer-motion';
-import {Context} from './Provider';
+import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
 
-// import { Container } from './styles';
+import { Context } from './Provider';
 
-export function DropdownSection({option}) {
+export function DropdownSection({ option }) {
   const { cachedId } = useContext(Context);
 
   const { id, optionCenterX, contentDimensions } = option;
@@ -13,7 +12,8 @@ export function DropdownSection({option}) {
   const x = optionCenterX - contentWidth / 2;
 
   const isActive = cachedId === id;
-  return  (
+
+  return (
     <motion.div
       className="dropdown-section"
       initial={{
@@ -29,9 +29,7 @@ export function DropdownSection({option}) {
         opacity: { duration: 0.2 },
       }}
     >
-
       <option.WrappedContent />
     </motion.div>
-
   );
 }

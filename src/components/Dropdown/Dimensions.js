@@ -1,14 +1,14 @@
-import { useState, useCallback,useLayoutEffect} from 'react';
+import { useState, useCallback, useLayoutEffect } from 'react';
 
 const getDimensions = (element) => element.getBoundingClientRect();
 
-export function useDimensions(responsive = true){
+export function useDimensions(responsive = true) {
   const [dimensions, setDimensions] = useState(null);
   const [element, setElement] = useState(null);
 
-  const hook = useCallback(e => setElement(e),[]);
+  const hook = useCallback((e) => setElement(e), []);
 
-  useLayoutEffect(()=>{
+  useLayoutEffect(() => {
     if (element) {
       const updateDimensions = () => {
         window.requestAnimationFrame(() => {
@@ -18,16 +18,15 @@ export function useDimensions(responsive = true){
 
       updateDimensions();
 
-      if(responsive){
-        window.addEventListener('resize',updateDimensions);
+      if (responsive) {
+        window.addEventListener('resize', updateDimensions);
 
-        return()=>{
-          window.removeEventListener('resize',updateDimensions)
+        return () => {
+          window.removeEventListener('resize', updateDimensions);
         };
       }
     }
-  },[element, responsive,hook]);
+  }, [element, hook, responsive]);
 
-  return [hook,dimensions,element];
-
+  return [hook, dimensions, element];
 }

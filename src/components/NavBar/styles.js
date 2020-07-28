@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background: linear-gradient(150deg,#53f 15%, #05d5ff);
-
-  >ul{
+export const Container = styled.nav`
+  background: linear-gradient(150deg, #53f 15%, #05d5ff);
+  > ul {
     display: flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:0 21px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 21px;
   }
 `;
-export const DropdownStyles =styled.div`
+
+export const DropdownStyles = styled.div`
   .dropdown-option {
     padding: 20px 25px;
     outline: 0;
@@ -41,7 +40,6 @@ export const DropdownStyles =styled.div`
       transform: rotate(45deg);
     }
   }
-
   .dropdown-container {
     position: absolute;
     overflow: hidden;
